@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
+// @ts-expect-error return type will be defined later
 const Home = () => {
   const { user } = useAuth();
   const router = useRouter();
