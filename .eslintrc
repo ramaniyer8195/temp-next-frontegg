@@ -1,0 +1,174 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    // "plugin:react-redux/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jest-formatting/recommended",
+    "prettier",
+    "next",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    // "react-redux",
+    "jest",
+    "jest-formatting",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    // EsLint Rules
+
+    // Require a whitespace at the beginning of a comment
+    "spaced-comment": ["error", "always"],
+    "semi": ["error", "always"],
+    "import/extensions": 0,
+    "import/no-named-as-default-member": 0,
+
+    // Maximum line length for comments
+    // Trailing comments allowed beyond maximum line length
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "comments": 100,
+        "ignoreTrailingComments": true
+      }
+    ],
+
+    // Require braces around blocks
+    "curly": ["error", "all"],
+
+    // Require parentheses around arrow function arguments
+    "arrow-parens": ["error", "always"],
+
+    // Require blank line before certain statements
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "function"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "class"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "export"
+      },
+      {
+        // Allow consecutive export statements
+        "blankLine": "any",
+        "prev": "export",
+        "next": "export"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "break"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "continue"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "throw"
+      },
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": "*"
+      },
+      // Allow consecutive variable declarations
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+
+    // eslint-plugin-react rules
+
+    // Suppress errors for missing 'import React' in files
+    // No need of 'import React' for Reactv17 onwards
+    "react/react-in-jsx-scope": "off",
+
+    // Require props to be sorted
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true
+      }
+    ],
+
+    // Omit boolean prop value when set to true
+    "react/jsx-boolean-value": ["error", "never"],
+
+    // Require self closing tags in JSX/HTML
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+
+    // Require PascalCase for user-defined JSX components
+    "react/jsx-pascal-case": ["error"],
+
+    // Disallow unnecessary curly braces in JSX
+    "react/jsx-curly-brace-presence": ["error", "never"],
+
+    // eslint-plugin-react-hooks rules
+
+    // Enforce rules of hooks
+    "react-hooks/rules-of-hooks": "error",
+
+    // Console logs cannot be committed.
+    "no-console": ["error"],
+
+    // eslint-plugin-jest rules
+
+    // Prefer "it" over "test"
+    "jest/consistent-test-it": [
+      "error",
+      { "fn": "it", "withinDescribe": "it" }
+    ],
+
+    // Disallow skipped/disabled tests
+    "jest/no-disabled-tests": "error",
+
+    // eslint-plugin-jest-formatting rules
+
+    // Require blank line before certain statements (ESLint rules don't work with Jest)
+    "jest-formatting/padding-around-all": "error",
+
+    // Require Explicit types for function return values
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}
